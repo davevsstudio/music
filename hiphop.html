@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Music</title>
+</head>
+<style>
+     :root{
+    --background-color:#192a56;
+    --green:#27ae60;
+    --hover:#666;
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    --border: .1rem solid #aaa;
+    --light-bg:#f3efec;
+    --dark-bg:rgba(0,0,0.7);
+    --primary-color:#8a6d46;
+	--bg-black-100:rgba(31, 31, 31, 0.9);
+	--bg-white-100:#ddd;
+	--bg-white-25:#f5f5f5f5;
+	--bg-black-10:#fff;
+	--text-black-900:#000;
+	--text-black-700:rgb(37, 37, 37);
+	--text-black-600:rgb(172, 172, 172);
+	--text-black-400:rgb(221, 221, 221);
+	--text-black-700:rgb(37, 37, 37);
+	--text-black-300:#f5f5f5;
+}
+
+section{
+	padding:2rem 9%;
+}
+*{
+	font-family: sans-serif;
+	margin: 0; padding: 0;
+	text-decoration: none;
+	outline: none;
+	box-sizing: border-box;
+	border: none;
+	text-transform: capitalize;
+	transition: all .2s linear;
+}
+
+:before, :after{
+	box-sizing:border-box;
+}
+
+img{
+	width:100%;
+}
+
+.container{
+	max-width:1140px;
+	margin:auto;
+}
+
+.row{
+	display:flex;
+	flex-wrap:wrap;
+}
+
+.titleText, h2{
+	color:var(--text-black-700);
+	font-size:2rem;
+	font-weight:300;
+}
+
+span{
+	color: var(--primary-color);
+	font-weight: 700;
+	font-size: 1.5rem;
+}
+
+.sub-heading{
+	text-align: center;
+	color: var(--background-color);
+	font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.heading{
+	text-align: center;
+	color: darkturquoise;
+	padding-bottom: 2rem;
+	font-size: 2.5rem;
+	text-transform: uppercase;
+}
+
+.title{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+
+.btn{
+	margin-top: 1rem;
+	display: inline-block;
+	font-size: 1rem;
+	color: #fff;
+	background-color: aquamarine;
+	border-radius: .5rem;
+	padding: .8rem 2rem;
+	cursor: pointer;
+}
+
+.btn:hover{
+	letter-spacing: 1px;
+}
+
+.navbar{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #fff;
+	box-shadow: var(--box-shadow);
+	padding: 20px 30px;
+	position: relative;
+}
+
+.logo{
+	font-size: 30px;
+	color: darkturquoise;
+	font-weight: bolder;
+}
+.logo img{
+	width: 50px;
+}
+
+.nav-links{
+	list-style: none;
+	display: flex;
+}
+
+.nav-links li{
+	margin-right: 25px;
+}
+
+.toggle-button{
+	display: none;
+	flex-direction: column;
+	cursor: pointer;
+}
+
+.toggle-button .bar{
+	width: 35px;
+	height: 4px;
+	background-color: #000;
+	border-radius: 5px;
+	margin: 3px 0px;
+}
+
+.nav-links li a{
+	font-size: 17px;
+	color: grey;
+	border-radius: .5rem;
+	padding: .5rem 1.5rem;
+	transition: 0.4s ease;
+}
+.nav-links li .active,
+.nav-links li a:hover{
+	letter-spacing:3px;
+	color: springgreen;
+}
+
+.icons img{
+    width: 30px;
+}
+
+.artist .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1.3rem;
+}
+
+.artist .box-container .box{
+     position: relative;
+     border: 1rem solid #333;
+     border-radius: .5rem;
+     height: 20rem;
+     cursor: pointer;
+     overflow: hidden;
+}
+
+.artist .box-container .box img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.artist .box-container .box:hover img{
+    transform: scale(1.1);
+    filter: grayscale();
+}
+
+.artist .box-container .box .name{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.artist .box-container .box .audio{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #333;
+    padding-top: 1rem;
+
+}
+
+@media screen and (max-width:450px) {
+	.navbar{
+        padding: 20px 50px;
+    }
+    .nav-links{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        padding: 25px;
+        background-color: var(--background-color);
+        top: 100%;
+        left: 0;
+    }
+    .toggle-button{
+        display: none;
+    }
+    .nav-links li{
+        padding: 10px 10px;
+    }
+    .nav-links li a{
+        color: #fff;
+    }
+    .nav-links.active{
+        display: block;
+    }
+	.btn{
+		margin-top: 1rem;
+		display: inline-block;
+		font-size: 1.4rem;
+		color: #fff;
+		background-color: #0ef;
+		border-radius: .5rem;
+		padding: .8rem 2rem;
+		cursor: pointer;
+	}
+	
+
+	.home{
+		position: relative;
+		width: 100%;
+		min-height: 100vh;
+		
+		background-repeat: no-repeat;
+		
+		display: flex;
+		
+
+	}
+
+	.nav-links.active{
+        display: block;
+    }
+
+	.artist{
+        padding-top: 300px;
+    }
+}
+</style>
+<body>
+             <!--header section starts-->
+  <header class="navbar">
+    <a href="#" class="logo"><img src="washing-machine.png" alt=""> Good Music</a>
+    <div class="toggle-button" id="toggleButton">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"   >Home</a></li>
+      <li><a href="trending.html" >Trending</a></li>
+      <li><a href="hiphop.html" class="active">Hip-hop</a></li>
+	  <li><a href="gospel.html" >Gospel</li>
+      <li><a href="artist.html">Artist</a></li>
+      <li><a href="donate.html">Donate</a></li>
+    </ul>
+
+  </header>
+  <!--header section ends-->
+
+  <section class="artist">
+    <h1 class="heading">Hip Hop Music</h1>
+    <div class="box-container">
+       
+
+   
+		<div class="box">
+            <img src="cast.jpg" alt="">
+            <h3 class="name">Cast - Shallipopi ft odumablvck</h3>
+			<div class="audio">
+				<audio src="Shallipopi-Cast-feat-Odumodublvck-(JustNaija.com).mp3" controls></audio>
+			</div>
+        </div>
+
+
+		<div class="box">
+            <img src="download (9).jpeg" alt="">
+            <h3 class="name">Lonely At The Top - Asake</h3>
+			<div class="audio">
+				<audio src="Asake-Lonely-At-The-Top.mp3" controls></audio>
+			</div>
+        </div>
+
+         <div class="box">
+            <img src="images (4).jpeg" alt="">
+            <h3 class="name">Sability - Ayraa Star</h3>
+			<div class="audio">
+				<audio src="y2mate.bz - excess-love-drill-remix-by-holydrill.mp3" controls></audio>
+			</div>
+        </div>
+
+		<div class="box">
+            <img src="images (5).jpeg" alt="">
+            <h3 class="name">Party No Dey Stop - Adekunle Gold ft Zionlessy</h3>
+			<div class="audio">
+				<audio src="y2mate.bz - here-i-am-to-worship-the-drill-version-prod.by-holydrill.mp3" controls></audio>
+			</div>
+        </div>
+
+		<div class="box">
+            <img src="download (10).jpeg" alt="">
+            <h3 class="name">Billionaira</h3>
+			<div class="audio">
+				<audio src="y2mate.bz - joy-in-chaos-holy-drill-lyrics.mp3" controls></audio>
+			</div>
+        </div>
+
+		<div class="box">
+            <img src="feel.jpg" alt="">
+            <h3 class="name">Feel It - Daivdo</h3>
+			<div class="audio">
+				<audio src="y2mate.bz - awesome-god-holydrill-telman-the-excentric-lyric-video.mp3" controls></audio>
+			</div>
+        </div>
+
+	
+
+	
+  
+    </div>
+</body>
+</html>
